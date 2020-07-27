@@ -7,6 +7,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onOptionsItemSelected (MenuItem item) {
+    public boolean onOptionsItemSelected (@NonNull MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
@@ -84,13 +85,10 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected (MenuItem item) {
+    public boolean onNavigationItemSelected (@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        switch (id) {
+        switch (item.getItemId()) {
             case R.id.nav_gallery:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_content, new GalleryFragment()).commit();
                 break;
@@ -105,29 +103,14 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_send:
-                Toast.makeText(this, "Hello Send ", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "Hello Send ", Toast.LENGTH_SHORT).show();
                 break;
 
             default:
-                Toast.makeText(this, "Hello share how are you", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "Hello share how are you", Toast.LENGTH_SHORT).show();
                 break;
 
         }
-
-        /*if (id == R.id.nav_home) {
-
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_tools) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }*/
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
