@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -27,23 +28,28 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main); // This is the start/main Activity
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
+
+        /*FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -67,7 +73,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected (MenuItem item) {
         // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
@@ -85,7 +90,32 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
+        switch (id) {
+            case R.id.nav_gallery:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_content, new GalleryFragment()).commit();
+                break;
+            case R.id.nav_home:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_content, new HomeFragment()).commit();
+                break;
+            case R.id.nav_tools:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_content, new ToolsFragment()).commit();
+                break;
+            case R.id.nav_slideshow:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_content, new SlideFragment()).commit();
+                break;
+
+            case R.id.nav_send:
+                Toast.makeText(this, "Hello Send ", Toast.LENGTH_SHORT);
+                break;
+
+            default:
+                Toast.makeText(this, "Hello share how are you", Toast.LENGTH_SHORT);
+                break;
+
+        }
+
+        /*if (id == R.id.nav_home) {
+
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
@@ -97,7 +127,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
-        }
+        }*/
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
