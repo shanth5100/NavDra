@@ -11,10 +11,12 @@ import androidx.fragment.app.Fragment;
 
 public class HomeFragment extends Fragment {
 
+    private BillsViewModel billsViewModel;
     @Nullable
     @Override
     public View onCreateView (@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 //        return super.onCreateView(inflater, container, savedInstanceState);
         return inflater.inflate(R.layout.fragment_home, container, false);
+
     }
 }
