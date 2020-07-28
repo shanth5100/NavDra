@@ -14,4 +14,16 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="title_activity_home_draw">HomeDraw</string>
+
+    <!--  Sidebar Fragments TEST -->
+    <string name="fragment_home_txt">Hello Homepage welcome</string>
+    <string name="fragment_gallery_txt">Hello gallery welcome</string>
+    <string name="fragment_tool_txt">Hello tool welcome</string>
+    <string name="fragment_slide_txt">Hello Slide welcome</string>
+
+<!--    bill form list  -->
+    <string name="hint_payee">Payee name/ contact person</string>
+    <string name="hint_bill_amount">Bill amount</string>
+    <string name="text_bill_type">billType</string>
+
 </resources>

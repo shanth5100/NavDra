@@ -1,9 +1,12 @@
 package com.one24apps.myapplication.model;
 
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "bills_tbl")
 public class Bills {
+
+    @PrimaryKey(autoGenerate = true)
     private int id;
 
     private double amount;

@@ -1,10 +1,11 @@
-package com.one24apps.myapplication.dao;
+package com.one24apps.myapplication.dao.repo;
 
 import android.app.Application;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
+import com.one24apps.myapplication.dao.BillsDao;
 import com.one24apps.myapplication.db.AppDB;
 import com.one24apps.myapplication.model.Bills;
 

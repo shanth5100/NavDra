@@ -1,4 +1,4 @@
-package com.one24apps.myapplication;
+package com.one24apps.myapplication.viewModel;
 
 import android.app.Application;
 
@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.one24apps.myapplication.dao.BillsRepository;
+import com.one24apps.myapplication.dao.repo.BillsRepository;
 import com.one24apps.myapplication.model.Bills;
 
 import java.util.List;
